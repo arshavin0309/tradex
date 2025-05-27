@@ -245,6 +245,13 @@ a {
         padding-bottom: 70px;
     }
 
+    &__info {
+        padding: 32px 123px 32px 24px;
+        background: var(--black-card);
+        border: 1px solid var(--grey-line);
+        border-radius: 10px;
+    }
+
     &__logo {
         display: inline-block;
         padding: 4px 20px;
@@ -259,7 +266,31 @@ a {
     }
 
     &__list {
+        display: grid;
+        gap: 10px;
+        justify-items: baseline;
         margin-top: 60px;
+    }
+
+    &__item {
+        display: grid;
+        grid-template-columns: 40px 1fr;
+        align-items: center;
+        gap: 16px;
+        text-decoration: none;
+        font-style: initial;
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 400;
+
+        img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50px;
+            border: 1px solid var(--orange);
+            background: var(--gradient-orange);
+            object-fit: none;
+        }
     }
 
     .menu {
@@ -272,18 +303,24 @@ a {
             &>a {
                 display: block;
                 margin-bottom: 15px;
+                font-size: 16px;
+                line-height: 20px;
+                font-weight: 400;
                 text-decoration: none;
             }
 
             &>.sub-menu {
-                display: flex;
-                flex-direction: column;
+                display: grid;
                 gap: 10px;
+                justify-items: baseline;
                 list-style: none;
 
                 &>.menu-item {
                     &>a {
                         display: block;
+                        font-size: 16px;
+                        line-height: 20px;
+                        font-weight: 400;
                         text-decoration: none;
                     }
                 }
@@ -345,8 +382,19 @@ h3,
 
 .main-hero {
     .container {
+        position: relative;
         padding-top: 155px;
-        background: url(../images/main-hero-bg.avif) right bottom / 800px 680px no-repeat;
+        background: url(../images/main-hero-bg.avif) right 220px bottom / 375px 471px no-repeat;
+
+        &::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: url(../images/main-hero-decor.avif) right bottom / contain no-repeat;
+        }
     }
 
     &__container {
@@ -373,7 +421,7 @@ section {
 
     &__item {
         min-height: 190px;
-        padding: 30px 25px;
+        padding: 30px 40px 30px 25px;
         background: var(--black-card);
         border: 1px solid var(--grey-line);
         border-radius: 10px;
@@ -381,13 +429,13 @@ section {
         &:nth-child(1) {
             grid-row: span 2;
             padding-bottom: 325px;
-            background: url(../images/main-way-item-1.webp) left bottom / contain no-repeat;
+            background: var(--black-card) url(../images/main-way-item-1.webp) left bottom / contain no-repeat;
         }
 
         &:nth-child(4) {
             grid-row: span 2;
             padding-bottom: 325px;
-            background: url(../images/main-way-item-4.avif) right 4px bottom 4px / 287px 298px no-repeat;
+            background: var(--black-card) url(../images/main-way-item-4.avif) right 4px bottom 4px / 287px 298px no-repeat;
         }
     }
 }
@@ -435,6 +483,10 @@ section {
         background: var(--black-card) url(../images/main-new-bg.avif) right bottom / 583px 418px no-repeat;
         border: 1px solid var(--grey-line);
         border-radius: 10px;
+
+        p {
+            max-width: 620px;
+        }
     }
 
     &__list {
@@ -472,6 +524,10 @@ section {
 
     .btn {
         margin-top: 30px;
+    }
+
+    h2 {
+        max-width: 600px;
     }
 }
 
@@ -557,6 +613,7 @@ section {
     min-height: 406px;
 
     .swiper-slide {
+        position: relative;
         min-height: 346px;
         margin-top: 30px;
         display: flex;
@@ -566,36 +623,99 @@ section {
         background: var(--black-card);
         border: 1px solid var(--grey-line);
         border-radius: 10px;
-        background-size: auto 190px;
-        background-position: right bottom;
-        background-repeat: no-repeat;
-        background-color: var(--black-card);
         transition: var(--transition);
+
+        &::before {
+            position: absolute;
+            content: '';
+            width: 184px;
+            height: 185px;
+            right: 9px;
+            bottom: 9px;
+            background: #FB622A4D;
+            border-radius: 50%;
+            opacity: 0;
+            filter: blur(50px);
+            transition: var(--transition);
+        }
+
+        &--alina {
+            &::after {
+                position: absolute;
+                content: '';
+                width: 100%;
+                height: 190px;
+                right: 0;
+                bottom: 0;
+                background: url(../images/alina.avif) right bottom / contain no-repeat;
+                transition: var(--transition);
+            }
+        }
+
+        &--andrey {
+            &::after {
+                position: absolute;
+                content: '';
+                width: 100%;
+                height: 190px;
+                right: 0;
+                bottom: 0;
+                background: url(../images/andrey.avif) right bottom / contain no-repeat;
+                transition: var(--transition);
+            }
+        }
+
+        &--mark {
+            &::after {
+                position: absolute;
+                content: '';
+                width: 100%;
+                height: 190px;
+                right: 0;
+                bottom: 0;
+                background: url(../images/mark.avif) right bottom / contain no-repeat;
+                transition: var(--transition);
+            }
+        }
+
+        &--svetlana {
+            &::after {
+                position: absolute;
+                content: '';
+                width: 100%;
+                height: 190px;
+                right: 0;
+                bottom: 0;
+                background: url(../images/svetlana.avif) right bottom / contain no-repeat;
+                transition: var(--transition);
+            }
+        }
+
+        &--alex {
+            &::after {
+                position: absolute;
+                content: '';
+                width: 100%;
+                height: 190px;
+                right: 0;
+                bottom: 0;
+                background: url(../images/alex.avif) right bottom / contain no-repeat;
+                transition: var(--transition);
+            }
+        }
 
         &-active {
             min-height: 406px;
             margin-top: 0;
             background-size: auto 261px;
-        }
 
-        &--alina {
-            background-image: url(../images/alina.avif);
-        }
+            &::before {
+                opacity: 1;
+            }
 
-        &--andrey {
-            background-image: url(../images/andrey.avif);
-        }
-
-        &--mark {
-            background-image: url(../images/mark.avif);
-        }
-
-        &--svetlana {
-            background-image: url(../images/svetlana.avif);
-        }
-
-        &--alex {
-            background-image: url(../images/alex.avif);
+            &::after {
+                height: 261px;
+            }
         }
     }
 
