@@ -103,4 +103,19 @@
             }
         }
     }
+
+    .swiper-btns {
+        .swiper-slide {
+            &:hover {
+                background: var(--hover);
+                color: var(--white);
+            }
+
+            &-thumb-active {
+                &:hover {
+                    background: var(--orange);
+                }
+            }
+        }
+    }
 }

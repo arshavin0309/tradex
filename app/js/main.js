@@ -19,7 +19,7 @@ let swiperBtns = new Swiper(".swiper-btns", {
 });
 
 let swiperPage = new Swiper(".swiper-page", {
-    spaceBetween: 10,
+    spaceBetween: 100,
     thumbs: {
         swiper: swiperBtns,
     },

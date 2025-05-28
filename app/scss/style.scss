@@ -1422,6 +1422,58 @@ section {
     }
 }
 
+.swiper-page {
+    .swiper-slide {
+        padding: 48px 32px;
+        background: var(--black-card);
+        border: 1px solid var(--grey-line);
+        border-radius: 10px;
+    }
+
+    &__content {
+        min-height: 430px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 45px;
+        margin-bottom: 80px;
+
+        &.forex {
+            background: url(../images/instruments-forex.avif) right top / contain no-repeat;
+        }
+
+        &.stocks {
+            background: url(../images/instruments-stocks.avif) right top / contain no-repeat;
+        }
+
+        &.indices {
+            background: url(../images/instruments-indices.avif) right top / contain no-repeat;
+        }
+
+        &.products {
+            background: url(../images/instruments-products.avif) right top / contain no-repeat;
+        }
+
+        &.cryptocurrencies {
+            background: url(../images/instruments-cryptocurrencies.avif) right top / contain no-repeat;
+        }
+    }
+
+    &__top {
+        max-width: 846px;
+        ;
+    }
+
+    &__bottom {
+        max-width: 846px;
+        ;
+    }
+
+    h3 {
+        margin-bottom: 16px;
+    }
+}
+
 @import '../scss/hovers';
 @import '../scss/1800';
 @import '../scss/1700';
