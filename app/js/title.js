@@ -16,7 +16,7 @@ if (!document.title) {
             break;
 
         case '/404.html':
-            title = lang == 'ru' ? 'Страница не найдена?' : 'Page not found';
+            title = lang == 'ru' ? 'Страница не найдена' : 'Page not found';
             document.title = title;
             break;
 

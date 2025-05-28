@@ -12,11 +12,94 @@
                 }
 
                 &:hover {
+                    &>a {
+                        color: var(--orange);
+                    }
+
                     &>.sub-menu {
                         visibility: visible;
                         opacity: 1;
+
+                        &>.menu-item {
+                            &>a {
+                                &:hover {
+                                    color: var(--orange);
+                                }
+                            }
+                        }
                     }
                 }
+            }
+        }
+
+        &__lang {
+            &:hover {
+                color: var(--orange);
+            }
+        }
+    }
+
+    .footer {
+        a.footer__item {
+            &:hover {
+                span {
+                    color: var(--orange);
+                }
+            }
+        }
+
+        .menu {
+            &>.menu-item {
+                &>.sub-menu {
+                    &>.menu-item {
+                        &>a {
+                            &:hover {
+                                color: var(--orange);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .btn {
+        &:hover {
+            background: var(--hover);
+        }
+
+        &--white {
+            &:hover {
+                background: var(--hover);
+                color: var(--white);
+            }
+        }
+    }
+
+    .main-new {
+        &__item {
+            &:hover {
+                background: var(--hover);
+
+                .main-new__title {
+                    img {
+                        box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, .2);
+                    }
+                }
+            }
+        }
+    }
+
+    .swiper-review {
+        &-prev {
+            &:hover {
+                background-image: url(../images/arrow-right-orange.svg);
+            }
+        }
+
+        &-next {
+            &:hover {
+                background-image: url(../images/arrow-right-orange.svg);
             }
         }
     }
