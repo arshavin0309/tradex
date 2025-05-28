@@ -203,3 +203,25 @@
         transform: rotateY(0deg);
     }
 }
+
+@keyframes bg-size {
+    0% {
+        background-size: 100% 100%;
+    }
+
+    20% {
+        background-size: 50% 100%;
+    }
+
+    40% {
+        background-size: 100% 100%;
+    }
+
+    70% {
+        background-size: 50% 100%;
+    }
+
+    100% {
+        background-size: 100% 100%;
+    }
+}
