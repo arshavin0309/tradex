@@ -1474,6 +1474,311 @@ section {
     }
 }
 
+.review-online {
+    h2 {
+        margin-bottom: 16px;
+
+        &+p {
+            margin-bottom: 48px;
+        }
+    }
+}
+
+.review-conditions {
+    h2 {
+        margin-bottom: 16px;
+
+        &+p {
+            margin-bottom: 48px;
+            max-width: 1027px
+        }
+    }
+}
+
+.review-events {
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    &__box {
+        padding: 48px;
+        background: var(--black-card);
+        border-radius: 10px;
+        border: 1px solid var(--grey-line);
+        text-align: center;
+    }
+
+    h2 {
+        margin-bottom: 16px;
+
+        &+p {
+            margin-bottom: 48px;
+        }
+    }
+
+    .widget-box {
+        .mch-widget {
+            margin: auto;
+        }
+    }
+}
+
+.calendar-content {
+    &__container {
+        position: relative;
+        display: grid;
+        gap: 85px;
+        grid-template-columns: 1fr 1fr;
+        padding: 48px 32px 52px;
+        background: var(--black-card);
+        border-radius: 10px;
+        border: 1px solid var(--grey-line);
+
+        &::before {
+            position: absolute;
+            content: '';
+            bottom: 139px;
+            left: 225px;
+            width: 305px;
+            height: 311px;
+            border-radius: 50%;
+            background: var(--orange);
+            filter: blur(80px);
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 43px;
+            bottom: 0;
+            width: 548px;
+            height: 467px;
+            background: url(../images/calendar-content-image.avif) left bottom / contain no-repeat;
+        }
+    }
+
+    h2 {
+        max-width: 600px;
+        margin-bottom: 32px;
+    }
+
+    .btn {
+        margin-top: 0;
+    }
+
+    &__box {
+        padding-bottom: 496px;
+    }
+
+    &__list {
+        display: grid;
+        gap: 20px;
+    }
+
+    &__item {
+        padding: 48px 24px;
+        background: var(--grey-card);
+        border-radius: 10px;
+        border: 1px solid var(--grey-line);
+    }
+
+    h3 {
+        margin-bottom: 16px;
+        color: var(--orange);
+    }
+}
+
+.calendar-use {
+    &__container {
+        padding: 48px 32px;
+        background: var(--black-card);
+        border: 1px solid var(--grey-line);
+        border-radius: 10px;
+    }
+
+    &__list {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    &__item {
+        position: relative;
+        display: grid;
+        align-content: baseline;
+        gap: 10px;
+        padding: 32px 24px 80px;
+        background: var(--grey-card);
+        border: 1px solid var(--grey-line);
+        border-radius: 10px;
+    }
+
+    h3 {
+        margin-bottom: 6px;
+    }
+
+    &__step {
+        position: absolute;
+        bottom: 32px;
+        right: 24px;
+        color: var(--orange)
+    }
+}
+
+.about-mission {
+    &__container {
+        padding: 48px 32px;
+        background: var(--black-card) url(../images/about-mission-image.avif) right top / auto 100% no-repeat;
+        border-radius: 10px;
+        border: 1px solid var(--grey-line);
+    }
+
+    h2 {
+        &+p {
+            max-width: 490px;
+        }
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 163px;
+    }
+
+    &__item {
+        padding: 32px 24px;
+        background: var(--grey-card);
+        border-radius: 10px;
+        border: 1px solid var(--grey-line);
+        text-align: center;
+
+        p {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        &:nth-child(1) {
+            p {
+                max-width: 281px;
+                margin: auto;
+            }
+        }
+    }
+
+    h3 {
+        margin-bottom: 16px;
+        color: var(--orange);
+    }
+}
+
+.about-why {
+    &__container {
+        padding: 48px 32px;
+        background: var(--black-card);
+        border-radius: 10px;
+        border: 1px solid var(--grey-line);
+    }
+
+    &__list {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    &__item {
+        position: relative;
+        padding: 76px 24px 32px;
+        background: var(--grey-card);
+        border-radius: 10px;
+        border: 1px solid var(--grey-line);
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 32px;
+            left: 24px;
+            width: 20px;
+            height: 20px;
+            background: var(--gradient-orange);
+            border-radius: 50%;
+        }
+    }
+
+    h3 {
+        margin-bottom: 16px;
+    }
+
+    &__image {
+        background: url(../images/about-why-image.avif) center / cover no-repeat;
+        border-radius: 10px;
+        border: 1px solid var(--grey-line);
+    }
+}
+
+.about-advantages {
+    &__list {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    &__item {
+        position: relative;
+        min-height: 450px;
+        padding: 32px 24px;
+        background: var(--black-card);
+        border: 1px solid var(--grey-line);
+        border-radius: 10px;
+        overflow: clip;
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        &:nth-child(1) {
+            &::before {
+                background: url(../images/about-advantages-1.avif) center bottom / 100% auto no-repeat;
+            }
+        }
+
+        &:nth-child(2) {
+            &::before {
+                background: url(../images/about-advantages-2.avif) center bottom / 100% auto no-repeat;
+            }
+        }
+
+        &:nth-child(3) {
+            &::before {
+                background: url(../images/about-advantages-3.avif) center bottom / 100% auto no-repeat;
+            }
+        }
+
+        &:nth-child(4) {
+            &::before {
+                background: url(../images/about-advantages-4.avif) center bottom / 100% auto no-repeat;
+            }
+        }
+    }
+
+    h3 {
+        position: relative;
+        margin-bottom: 16px;
+    }
+
+    p {
+        position: relative;
+    }
+}
+
 @import '../scss/hovers';
 @import '../scss/1800';
 @import '../scss/1700';

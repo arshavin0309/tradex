@@ -118,4 +118,14 @@
             }
         }
     }
+
+    .about-advantages {
+        &__item {
+            &:hover {
+                &::before {
+                    opacity: 1;
+                }
+            }
+        }
+    }
 }
