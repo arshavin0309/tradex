@@ -128,4 +128,58 @@
             }
         }
     }
+
+    .documents-docs {
+        &__link {
+            &:hover {
+                &::before {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .contacts-content {
+        form {
+            input {
+                &.btn {
+                    &:hover {
+                        background: var(--hover);
+                    }
+                }
+            }
+
+            .wpcf7-acceptance {
+                label {
+                    a {
+                        &:hover {
+                            color: var(--hover);
+                        }
+                    }
+                }
+            }
+        }
+
+        &__item {
+            a {
+                &:hover {
+                    color: var(--hover);
+                }
+            }
+        }
+    }
+
+    .platform-platform {
+        &__btns {
+            .btn--white {
+                &.wt {
+                    &:hover {
+                        &::before {
+                            background-image: url(../images/wt-icon-hover.svg);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
