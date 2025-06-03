@@ -14,6 +14,7 @@ const svgSprite = require('gulp-svg-sprite'); // объединение svg ка
 const include = require('gulp-include'); // подключение html к html
 const typograf = require('gulp-typograf'); //расставляет неразрывные пробелы в нужных местах
 const fs = require('fs');
+const sourcemaps = require('gulp-sourcemaps');
 
 function resources() {
     return src('app/upload/**/*')
@@ -39,16 +40,12 @@ function images() {
     return src(['app/images/src/*.*', '!app/images/src/*.svg'])
         .pipe(newer('app/images/'))
         .pipe(avif({ quality: 90 }))
-
-        .pipe(src('app/images/src/*.*'))
-        .pipe(newer('app/images/'))
-        .pipe(webp())
-
-        .pipe(src('app/images/src/*.*'))
-        .pipe(newer('app/images/'))
-        .pipe(imagemin())
-
         .pipe(dest('app/images/'))
+        .pipe(webp())
+        .pipe(dest('app/images/'))
+        .pipe(imagemin())
+        .pipe(dest('app/images/'))
+
         .pipe(browserSync.stream())
 }
 
@@ -89,19 +86,11 @@ function scripts() {
 
 function styles() {
     return src('app/scss/style.scss')
+        .pipe(sourcemaps.init())
+        .pipe(scss({ outputStyle: 'compressed' }))
         .pipe(autoprefixer({ overrideBrowserslist: ['last 10 version'] }))
         .pipe(concat('style.min.css'))
-
-        // без минификации
-        // .pipe(scss({
-        //     outputStyle: 'expanded'
-        // }))
-
-        // с минификацией
-        .pipe(scss({
-            outputStyle: 'compressed'
-        }))
-
+        .pipe(sourcemaps.write('.'))
         .pipe(dest('app/css'))
         .pipe(browserSync.stream())
 }
@@ -113,7 +102,7 @@ function watching() {
         }
     });
     watch(['app/scss/**/*.scss'], styles)
-    watch(['app/images/src'], images)
+    watch(['app/images/src/**/*.*'], images)
     watch(['app/js/**/*.js', '!app/js/main.min.js',], scripts)
     watch(['app/components/**/*.html', 'app/pages/**/*.html'], pages)
     watch(['app/*.html']).on('change', browserSync.reload)
