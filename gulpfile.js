@@ -120,11 +120,6 @@ function watching() {
     watch(['app/upload/**/*'], resources)
 }
 
-// function cleanDist() {
-//     return src('dist')
-//         .pipe(clean())
-// }
-
 function cleanDist() {
     // Проверяем, существует ли папка dist
     if (fs.existsSync('dist')) {
