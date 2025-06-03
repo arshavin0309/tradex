@@ -67,13 +67,8 @@ function scripts() {
         'node_modules/jquery/dist/jquery.js',
         'node_modules/jquery-ui/dist/jquery-ui.js',
         'node_modules/swiper/swiper-bundle.js',
-        'app/js/accordion.js', // аккордеоны
-        'app/js/cookie.js', // уведомление о куки
-        'app/js/menu.js', // меню хедера
-        'app/js/table.js', // таблица с табами
-        'app/js/title.js', // установка title
-        'app/js/up-btn.js', // кнопка наверх
-        'app/js/main.js' // основной файл javascript
+        'app/js/**/*.js',
+        '!app/js/main.min.js',
     ])
         .pipe(concat('main.min.js'))
         .pipe(uglify({
