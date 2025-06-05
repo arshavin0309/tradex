@@ -91,9 +91,20 @@ function styles() {
 }
 
 function watching() {
+    const path = require('path');
+
     browserSync.init({
         server: {
-            baseDir: 'app/'
+            baseDir: 'app/',
+            middleware: function (req, res, next) {
+                const filePath = path.join(__dirname, 'app', req.url === '/' ? 'index.html' : req.url);
+
+                if (!fs.existsSync(filePath)) {
+                    req.url = '/404.html';
+                }
+
+                return next();
+            }
         }
     });
     watch(['app/scss/**/*.scss'], styles)
@@ -126,7 +137,8 @@ function building() {
         // 'app/images/sprite.svg',
         'app/js/main.min.js',
         'app/*.html',
-        'app/upload/**/*'
+        'app/upload/**/*',
+        'app/web.config',
     ], { base: 'app' })
         .pipe(dest('dist'))
 }
