@@ -10,8 +10,7 @@ const avif = require('gulp-avif'); // конвертер в avif
 const webp = require('gulp-webp'); // конвертер в webp
 const imagemin = require('gulp-imagemin'); // сжимание картинок
 const newer = require('gulp-newer'); // кэш
-// const include = require('gulp-include'); // подключение html к html
-const fileInclude = require('gulp-file-include'); // подключение html к html
+const include = require('gulp-include'); // подключение html к html
 const typograf = require('gulp-typograf'); // расставляет неразрывные пробелы в нужных местах
 const fs = require('fs'); // проверка на существование файла
 const sourcemaps = require('gulp-sourcemaps'); // упрощает отладку, показывает в DevTools исходный путь
@@ -21,26 +20,10 @@ function resources() {
         .pipe(dest('dist/upload'))
 }
 
-// function pages() {
-//     return src('app/pages/*.html')
-//         .pipe(include({
-//             includePaths: 'app/components'
-//         }))
-//         .pipe(typograf({
-//             locale: ['ru', 'en-US'],
-//             safeTags: [
-//                 ['<no-typography>', '</no-typography>']
-//             ]
-//         }))
-//         .pipe(dest('app'))
-//         .pipe(browserSync.stream())
-// }
-
 function pages() {
     return src('app/pages/*.html')
-        .pipe(fileInclude({
-            prefix: '@@',
-            basepath: '@file'
+        .pipe(include({
+            includePaths: 'app/components'
         }))
         .pipe(typograf({
             locale: ['ru', 'en-US'],
@@ -60,7 +43,7 @@ function images() {
         .pipe(src('app/images/src/*.*'))
         .pipe(newer('app/images/'))
         .pipe(webp())
-
+        
         .pipe(src('app/images/src/*.*'))
         .pipe(newer('app/images/'))
         .pipe(imagemin())

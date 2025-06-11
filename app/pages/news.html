@@ -1,4 +1,4 @@
-<!--=include header.html -->
+@@include('../components/header.html', {"title": "Новости рынка"})
 
 <main>
     <section class="news-hero hero-bg">
@@ -17,9 +17,8 @@
         </div>
     </section>
 
-    <!--=include main-easy.html -->
-
-    <!--=include banner-3.html -->
+    @@include('../components/main-easy.html')
+    @@include('../components/banner-3.html')
 </main>
 
-<!--=include footer.html -->
+@@include('../components/footer.html')
