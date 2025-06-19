@@ -1,3 +1,114 @@
 @media (max-width: 1200px) {
-    
+    .header {
+        &__content {
+            z-index: 10;
+            position: absolute;
+            top: 70px;
+            width: 100%;
+            right: 0;
+            height: calc(100vh - 70px - 30px);
+            background: var(--black-card);
+            display: grid;
+            align-content: start;
+            gap: 0;
+            max-width: 400px;
+            border-radius: 10px;
+            border: 1px solid var(--grey-line);
+            box-shadow: 0px 0px 12px 14px rgba(0, 0, 0, .2);
+            overflow: clip;
+            transform: translateX(100%);
+
+            &.active {
+                right: 30px;
+                transform: none;
+            }
+        }
+
+        &__logo {
+            width: 182px;
+            height: 34px;
+        }
+
+        &__burger {
+            display: block;
+        }
+
+        .menu {
+            display: grid;
+            padding-bottom: 1px;
+            gap: 20px;
+            align-content: start;
+            gap: 1px;
+            background: var(--grey-line);
+
+            &.header__lang {
+                width: 100%;
+                padding: 0;
+                border-radius: initial;
+                border: none;
+                background: var(--black-card);
+
+                &::before {
+                    display: none;
+                }
+
+                &>.menu-item {
+                    border-bottom: 1px solid var(--grey-line);
+
+                    &>a {
+                        padding: 15px 20px;
+                    }
+
+                    &>.sub-menu {
+                        text-align: initial;
+                    }
+                }
+            }
+
+            &>.menu-item {
+                &::before {
+                    display: none;
+                }
+
+                &>a {
+                    display: block;
+                    padding: 15px 20px;
+                    background: var(--black-card);
+                }
+
+                &>.sub-menu {
+                    position: initial;
+                    padding: 0;
+                    gap: 1px;
+                    visibility: initial;
+                    opacity: initial;
+                    border: none;
+                    border-radius: initial;
+                    transition: none;
+                    background: var(--grey-card);
+
+                    &>.menu-item {
+                        &>a {
+                            display: block;
+                            padding: 15px 30px;
+                            background: var(--grey-line);
+                        }
+                    }
+                }
+            }
+        }
+
+        &__box {
+            flex-direction: column;
+            align-items: start;
+
+            .btn--white {
+                margin-left: 15px;
+            }
+        }
+    }
+
+    .main-hero {
+        margin-top: 60px;
+    }
 }

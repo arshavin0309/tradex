@@ -10,31 +10,33 @@ const avif = require('gulp-avif'); // конвертер в avif
 const webp = require('gulp-webp'); // конвертер в webp
 const imagemin = require('gulp-imagemin'); // сжимание картинок
 const newer = require('gulp-newer'); // кэш
-// const include = require('gulp-include'); // подключение html к html
 const fileInclude = require('gulp-file-include'); // подключение html к html
 const typograf = require('gulp-typograf'); // расставляет неразрывные пробелы в нужных местах
 const fs = require('fs'); // проверка на существование файла
 const sourcemaps = require('gulp-sourcemaps'); // упрощает отладку, показывает в DevTools исходный путь
+const svgmin = require('gulp-svgmin'); // сжатие и минификация svg картинок
+
+function svgIcons() {
+  return src('app/images/src/**/*.svg')
+    .pipe(svgmin({
+      plugins: [
+        {
+          name: 'removeViewBox',
+          active: false, // оставляем viewBox
+        },
+        {
+          name: 'cleanupIDs',
+          active: false, // не трогаем id, если они используются в CSS
+        }
+      ]
+    }))
+    .pipe(dest('app/images')); // или 'dist/icons'
+}
 
 function resources() {
     return src('app/upload/**/*')
         .pipe(dest('dist/upload'))
 }
-
-// function pages() {
-//     return src('app/pages/*.html')
-//         .pipe(include({
-//             includePaths: 'app/components'
-//         }))
-//         .pipe(typograf({
-//             locale: ['ru', 'en-US'],
-//             safeTags: [
-//                 ['<no-typography>', '</no-typography>']
-//             ]
-//         }))
-//         .pipe(dest('app'))
-//         .pipe(browserSync.stream())
-// }
 
 function pages() {
     return src('app/pages/*.html')
@@ -57,11 +59,11 @@ function images() {
         .pipe(newer('app/images/'))
         .pipe(avif({ quality: 90 }))
 
-        .pipe(src('app/images/src/*.*'))
+        .pipe(src(['app/images/src/*.*', '!app/images/src/*.svg']))
         .pipe(newer('app/images/'))
         .pipe(webp())
 
-        .pipe(src('app/images/src/*.*'))
+        .pipe(src(['app/images/src/*.*', '!app/images/src/*.svg']))
         .pipe(newer('app/images/'))
         .pipe(imagemin())
 
@@ -89,12 +91,12 @@ function scripts() {
 function styles() {
     return src('app/scss/style.scss')
         .pipe(sourcemaps.init())
-        .pipe(scss({ outputStyle: 'compressed' }))
+        .pipe(scss({ outputStyle: 'compressed' }).on('error', scss.logError))
         .pipe(autoprefixer({ overrideBrowserslist: ['last 10 version'] }))
         .pipe(concat('style.min.css'))
-        .pipe(sourcemaps.write('.'))
+        .pipe(sourcemaps.write())
         .pipe(dest('app/css'))
-        .pipe(browserSync.stream())
+        .on('end', () => setTimeout(() => browserSync.reload(), 100)); // 100 мс пауза
 }
 
 function watching() {
@@ -151,10 +153,11 @@ function building() {
 
 exports.styles = styles;
 exports.images = images;
+exports.svgIcons = svgIcons;
 exports.pages = pages;
 exports.building = building;
 exports.scripts = scripts;
 exports.watching = watching;
 
 exports.build = series(cleanDist, building);
-exports.default = series(styles, images, scripts, pages, watching);
+exports.default = series(styles, images, svgIcons, scripts, pages, watching);
