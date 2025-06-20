@@ -16,6 +16,27 @@ const fs = require('fs'); // проверка на существование ф
 const sourcemaps = require('gulp-sourcemaps'); // упрощает отладку, показывает в DevTools исходный путь
 const svgmin = require('gulp-svgmin'); // сжатие и минификация svg картинок
 
+function fonts() {
+    const fontFolder = 'app/fonts';
+    const destFolder = 'dist/fonts';
+
+    if (!fs.existsSync(fontFolder)) {
+        const { Readable } = require('stream');
+        return new Readable({ read() { this.push(null); } });
+    }
+
+    const fontFiles = fs.readdirSync(fontFolder).filter(file => !file.startsWith('.'));
+    
+    if (fontFiles.length === 0) {
+        const { Readable } = require('stream');
+        return new Readable({ read() { this.push(null); } });
+    }
+
+    return src(`${fontFolder}/**/*`)
+        .pipe(newer(destFolder))
+        .pipe(dest(destFolder));
+}
+
 function svgIcons() {
   return src('app/images/src/**/*.svg')
     .pipe(svgmin({
@@ -157,7 +178,8 @@ exports.svgIcons = svgIcons;
 exports.pages = pages;
 exports.building = building;
 exports.scripts = scripts;
+exports.fonts = fonts;
 exports.watching = watching;
 
-exports.build = series(cleanDist, building);
+exports.build = series(cleanDist, building, fonts);
 exports.default = series(styles, images, svgIcons, scripts, pages, watching);
