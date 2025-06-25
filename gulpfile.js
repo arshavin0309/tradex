@@ -15,6 +15,7 @@ const typograf = require('gulp-typograf'); // расставляет нераз�
 const fs = require('fs'); // проверка на существование файла
 const sourcemaps = require('gulp-sourcemaps'); // упрощает отладку, показывает в DevTools исходный путь
 const svgmin = require('gulp-svgmin'); // сжатие и минификация svg картинок
+const path = require('path');
 
 function fonts() {
     const fontFolder = 'app/fonts';
@@ -26,7 +27,7 @@ function fonts() {
     }
 
     const fontFiles = fs.readdirSync(fontFolder).filter(file => !file.startsWith('.'));
-    
+
     if (fontFiles.length === 0) {
         const { Readable } = require('stream');
         return new Readable({ read() { this.push(null); } });
@@ -38,20 +39,20 @@ function fonts() {
 }
 
 function svgIcons() {
-  return src('app/images/src/**/*.svg')
-    .pipe(svgmin({
-      plugins: [
-        {
-          name: 'removeViewBox',
-          active: false, // оставляем viewBox
-        },
-        {
-          name: 'cleanupIDs',
-          active: false, // не трогаем id, если они используются в CSS
-        }
-      ]
-    }))
-    .pipe(dest('app/images')); // или 'dist/icons'
+    return src('app/images/src/**/*.svg')
+        .pipe(svgmin({
+            plugins: [
+                {
+                    name: 'removeViewBox',
+                    active: false, // оставляем viewBox
+                },
+                {
+                    name: 'cleanupIDs',
+                    active: false, // не трогаем id, если они используются в CSS
+                }
+            ]
+        }))
+        .pipe(dest('app/images')); // или 'dist/icons'
 }
 
 function resources() {
@@ -117,25 +118,35 @@ function styles() {
         .pipe(concat('style.min.css'))
         .pipe(sourcemaps.write())
         .pipe(dest('app/css'))
-        .on('end', () => setTimeout(() => browserSync.reload(), 100)); // 100 мс пауза
+        .pipe(browserSync.stream())
 }
 
 function watching() {
-    const path = require('path');
-
     browserSync.init({
         server: {
             baseDir: 'app/',
             middleware: function (req, res, next) {
+                // Расширения файлов, которые считаются ассетами (не HTML)
+                const ignored = ['.css', '.js', '.map', '.png', '.jpg', '.jpeg', '.svg', '.webp', '.avif'];
+
+                // Если URL запроса содержит одно из расширений ассетов — пропускаем без проверки наличия файла
+                if (ignored.some(ext => req.url.includes(ext))) {
+                    return next(); // Не перехватываем запросы к стилям, скриптам и изображениям
+                }
+
+                // Определяем путь к файлу в файловой системе
                 const filePath = path.join(__dirname, 'app', req.url === '/' ? 'index.html' : req.url);
 
+                // Если запрашиваемый файл не существует — заменяем путь на кастомную страницу 404
                 if (!fs.existsSync(filePath)) {
                     req.url = '/404.html';
                 }
 
+                // Продолжаем обработку запроса
                 return next();
             }
         },
+        // Отключаем синхронизацию действий (клики, скролл и т.п.) между вкладками/устройствами
         ghostMode: false
     });
 
