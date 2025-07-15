@@ -110,5 +110,27 @@
 
     .main-hero {
         margin-top: 60px;
+
+        .container {
+            background-size: auto 400px;
+        }
+    }
+
+    .footer {
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    h1, .h1 {
+        font-size: 42px;
+        line-height: 48px;
+        font-weight: 600;
     }
 }

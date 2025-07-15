@@ -52,6 +52,11 @@
     }
 }
 
+html, body {
+    min-width: 393px;
+    overflow-x: hidden;
+}
+
 .upButton {
     z-index: 1000;
     position: fixed;
@@ -115,7 +120,6 @@
 body {
     background: var(--bg);
     color: var(--white);
-    overflow-x: clip;
 }
 
 a {

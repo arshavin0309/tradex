@@ -21,11 +21,29 @@
             &.active {
                 right: 15px;
             }
+
+            .btn--white {
+                width: calc(100% - 15px - 15px);
+            }
         }
     }
 
     .container {
         padding-left: 15px;
         padding-right: 15px;
+    }
+
+    .btn {
+        width: 100%;
+
+        &--white {
+            width: 100%;
+        }
+    }
+
+    .main-hero {
+        .title {
+            max-width: 300px;
+        }
     }
 }

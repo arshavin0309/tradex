@@ -1,3 +1,40 @@
 @media (max-width: 700px) {
-    
+    .main-hero {
+        margin-top: 130px;
+
+        .container {
+            padding-top: 0;
+        }
+    }
+
+    .footer {
+        &__info {
+            padding: 24px 10px;
+        }
+
+        &__logo {
+            padding: 0 16px;
+
+            img {
+                width: 307px;
+                height: 57px;
+            }
+        }
+
+        &__list {
+            margin-top: 40px;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+    }
+
+    h1, .h1 {
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 38px;
+    }
 }
