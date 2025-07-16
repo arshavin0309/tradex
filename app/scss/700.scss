@@ -32,9 +32,29 @@
         }
     }
 
-    h1, .h1 {
+    h1,
+    .h1 {
         font-weight: 600;
         font-size: 32px;
         line-height: 38px;
+    }
+
+    .main-way {
+        &__list {
+            grid-template-columns: 1fr;
+        }
+
+        &__item {
+            &:nth-child(1) {
+                padding: 24px 83px 292px 16px;
+                grid-row: initial;
+                grid-column: initial;
+            }
+
+            &:nth-child(4) {
+                grid-row: 2;
+                grid-column: initial;
+            }
+        }
     }
 }

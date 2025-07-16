@@ -25,4 +25,12 @@
             grid-template-columns: 500px 1fr;
         }
     }
+
+    .main-way {
+        &__item {
+            &:nth-child(4) {
+                background-size: 250px auto;
+            }
+        }
+    }
 }
