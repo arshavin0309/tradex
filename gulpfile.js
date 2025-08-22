@@ -7,8 +7,6 @@ const browserSync = require('browser-sync').create(); // запускает ло
 const autoprefixer = require('gulp-autoprefixer'); // приводит css к кросбраузерности
 const clean = require('gulp-clean'); // удаление папок
 const avif = require('gulp-avif'); // конвертер в avif
-const webp = require('gulp-webp'); // конвертер в webp
-const imagemin = require('gulp-imagemin'); // сжимание картинок
 const newer = require('gulp-newer'); // кэш
 const fileInclude = require('gulp-file-include'); // подключение html к html
 const typograf = require('gulp-typograf'); // расставляет неразрывные пробелы в нужных местах
@@ -16,21 +14,14 @@ const fs = require('fs'); // проверка на существование ф
 const sourcemaps = require('gulp-sourcemaps'); // упрощает отладку, показывает в DevTools исходный путь
 const svgmin = require('gulp-svgmin'); // сжатие и минификация svg картинок
 const path = require('path');
+const replace = require('gulp-replace'); // добавление хэша при подключении стилей и скриптов
 
 function fonts() {
     const fontFolder = 'app/fonts';
     const destFolder = 'dist/fonts';
 
     if (!fs.existsSync(fontFolder)) {
-        const { Readable } = require('stream');
-        return new Readable({ read() { this.push(null); } });
-    }
-
-    const fontFiles = fs.readdirSync(fontFolder).filter(file => !file.startsWith('.'));
-
-    if (fontFiles.length === 0) {
-        const { Readable } = require('stream');
-        return new Readable({ read() { this.push(null); } });
+        return Promise.resolve(); // Возвращаем пустой промис, если папки нет
     }
 
     return src(`${fontFolder}/**/*`)
@@ -78,28 +69,19 @@ function pages() {
 
 function images() {
     return src(['app/images/src/*.*', '!app/images/src/*.svg'])
-        .pipe(newer('app/images/'))
+        .pipe(newer({
+            dest: 'app/images/',
+            ext: '.avif', // Сравниваем исходные файлы с их .avif версиями
+        }))
         .pipe(avif({ quality: 90 }))
-
-        .pipe(src(['app/images/src/*.*', '!app/images/src/*.svg']))
-        .pipe(newer('app/images/'))
-        .pipe(webp())
-
-        .pipe(src(['app/images/src/*.*', '!app/images/src/*.svg']))
-        .pipe(newer('app/images/'))
-        .pipe(imagemin())
-
         .pipe(dest('app/images/'))
         .pipe(browserSync.stream())
 }
 
 function scripts() {
     return src([
-        'node_modules/jquery/dist/jquery.js',
-        'node_modules/jquery-ui/dist/jquery-ui.js',
         'node_modules/swiper/swiper-bundle.js',
-        'app/js/**/*.js',
-        '!app/js/main.min.js',
+        'app/js/src/**/*.js',
     ])
         .pipe(concat('main.min.js'))
         .pipe(uglify({
@@ -111,11 +93,14 @@ function scripts() {
 }
 
 function styles() {
+    const timestamp = Date.now();
+
     return src('app/scss/style.scss')
         .pipe(sourcemaps.init())
         .pipe(scss({ outputStyle: 'compressed' }).on('error', scss.logError))
-        .pipe(autoprefixer({ overrideBrowserslist: ['last 10 version'] }))
+        .pipe(autoprefixer({ cascade: false }))
         .pipe(concat('style.min.css'))
+        .pipe(replace(/(\.png|\.jpg|\.jpeg|\.webp|\.avif|\.svg)(\?v=\d+)?/g, `$1?v=${timestamp}`))
         .pipe(sourcemaps.write())
         .pipe(dest('app/css'))
         .pipe(browserSync.stream())
@@ -152,10 +137,11 @@ function watching() {
 
     watch(['app/scss/**/*.scss'], styles);
     watch(['app/images/src/**/*.*'], images);
+    watch(['app/images/src/**/*.svg'], svgIcons);
     watch(['app/js/**/*.js', '!app/js/main.min.js',], scripts);
     watch(['app/components/**/*.html', 'app/pages/**/*.html'], pages);
-    watch(['app/*.html']).on('change', browserSync.reload);
     watch(['app/upload/**/*'], resources);
+    watch(['app/*.html']).on('change', browserSync.reload);
 }
 
 function cleanDist() {
@@ -171,6 +157,8 @@ function cleanDist() {
 }
 
 function building() {
+    const timestamp = Date.now();
+
     return src([
         'app/css/**/*.css',
         '!app/images/**/*.html',
@@ -180,6 +168,9 @@ function building() {
         'app/upload/**/*',
         'app/web.config',
     ], { base: 'app' })
+        .pipe(replace(/style\.min\.css(\?v=\d+)?/, `style.min.css?v=${timestamp}`))
+        .pipe(replace(/main\.min\.js(\?v=\d+)?/, `main.min.js?v=${timestamp}`))
+        .pipe(replace(/(\.png|\.jpg|\.jpeg|\.webp|\.avif|\.svg)(\?v=\d+)?/g, `$1?v=${timestamp}`))
         .pipe(dest('dist'))
 }
 

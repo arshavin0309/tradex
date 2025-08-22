@@ -238,6 +238,7 @@ a {
                 background: var(--black-card);
                 opacity: 0;
                 visibility: hidden;
+                overflow: hidden;
 
                 &>.menu-item {
                     &>a {
@@ -485,7 +486,7 @@ section {
         &:nth-child(1) {
             grid-row: span 2;
             padding-bottom: 325px;
-            background: var(--black-card) url(../images/main-way-item-1.webp) left bottom / contain no-repeat;
+            background: var(--black-card) url(../images/main-way-item-1.avif) left bottom / contain no-repeat;
         }
 
         &:nth-child(4) {
@@ -1621,7 +1622,7 @@ section {
     }
 }
 
-.mch-widget-jvz.mch-widget-ideas {
+.mch-widget {
     max-width: 100% !important;
 }
 
