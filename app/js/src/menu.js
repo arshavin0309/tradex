@@ -2,78 +2,88 @@
 document.addEventListener("DOMContentLoaded", () => {
     const header = document.querySelector(".header");
     const burger = document.querySelector(".header__burger");
-
     const menuItems = document.querySelectorAll(".header .menu > .menu-item");
     const subMenus = document.querySelectorAll(".header .menu > .menu-item > .sub-menu");
-
     const headerBox = document.querySelector(".header__content");
-    const upButton = document.querySelector(".upButton");
-
     const mediaQuery = window.matchMedia("(max-width: 1200px)");
 
-    subMenus.forEach(subMenu => {
-        subMenu.style.maxHeight = "0px";
-    })
+    if (subMenus.length > 0) {
+        subMenus.forEach(subMenu => {
+            subMenu.style.maxHeight = "0px";
+        })
+    }
 
     function handleChange(e) {
         if (e.matches) {
             // экран <= 1200
-            subMenus.forEach(subMenu => {
-                subMenu.style.maxHeight = "0px";
-            })
+            if (subMenus.length > 0) {
+                subMenus.forEach(subMenu => {
+                    subMenu.style.maxHeight = "0px";
+                })
+            }
 
-            burger.onclick = () => {
+            if (burger) burger.onclick = () => {
                 if (burger.classList.contains('active')) {
                     // Закрыли меню
-                    header.classList.remove("active");
+                    if (header) header.classList.remove("active");
                     burger.classList.remove("active");
-                    headerBox.classList.remove("active");
+                    if (headerBox) headerBox.classList.remove("active");
 
-                    subMenus.forEach(subMenu => {
-                        subMenu.style.maxHeight = "0px";
-                        subMenu.classList.remove('active');
-                    })
+                    if (subMenus.length > 0) {
+                        subMenus.forEach(subMenu => {
+                            subMenu.style.maxHeight = "0px";
+                            subMenu.classList.remove('active');
+                        })
+                    }
                 } else {
                     // Активировали меню
-                    header.classList.add("active");
+                    if (header) header.classList.add("active");
                     burger.classList.add("active");
-                    headerBox.classList.add("active");
+                    if (headerBox) headerBox.classList.add("active");
                 }
             };
 
-            menuItems.forEach(menuItem => {
-                menuItem.onclick = () => {
-                    const subMenu = menuItem.querySelector(".sub-menu");
+            if (menuItems.length > 0) {
+                menuItems.forEach(menuItem => {
+                    menuItem.onclick = () => {
+                        const subMenu = menuItem.querySelector(".sub-menu");
 
-                    // Закрываем все подменю кроме текущего
-                    menuItems.forEach(otherItem => {
-                        if (otherItem !== menuItem) {
+                        // Проверяем существует ли subMenu
+                        if (!subMenu) return;
+
+                        // Закрываем все подменю кроме текущего
+                        menuItems.forEach(otherItem => {
                             const otherSubMenu = otherItem.querySelector(".sub-menu");
-                            otherSubMenu.classList.remove('active');
-                            otherSubMenu.style.maxHeight = "0px";
+
+                            if (otherSubMenu && otherItem !== menuItem) {
+                                otherSubMenu.classList.remove('active');
+                                otherSubMenu.style.maxHeight = "0px";
+                            }
+                        });
+
+                        // Переключаем текущее подменю
+                        subMenu.classList.toggle('active');
+
+                        if (subMenu.classList.contains('active')) {
+                            subMenu.style.maxHeight = subMenu.scrollHeight + "px";
+                        } else {
+                            subMenu.style.maxHeight = "0px";
                         }
-                    });
-
-                    // Переключаем текущее подменю
-                    subMenu.classList.toggle('active');
-
-                    if (subMenu.classList.contains('active')) {
-                        subMenu.style.maxHeight = subMenu.scrollHeight + "px";
-                    } else {
-                        subMenu.style.maxHeight = "0px";
                     }
-                }
-            });
+                });
+            }
 
         } else {
             // экран > 1200
-            header.classList.remove("active");
-            burger.classList.remove("active");
-            headerBox.classList.remove("active");
+            if (header) header.classList.remove("active");
+            if (burger) burger.classList.remove("active");
+            if (headerBox) headerBox.classList.remove("active");
 
-            subMenus.forEach(subMenu => {
-                subMenu.style.maxHeight = "";
-            })
+            if (subMenus.length > 0) {
+                subMenus.forEach(subMenu => {
+                    subMenu.style.maxHeight = "";
+                })
+            }
         }
     }
 
