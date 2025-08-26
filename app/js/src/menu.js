@@ -27,7 +27,13 @@ document.addEventListener("DOMContentLoaded", () => {
             menuItems.forEach(menuItem => {
                 menuItem.onclick = () => {
                     const subMenu = menuItem.querySelector(".sub-menu");
-                    subMenu.style.maxHeight = subMenu.scrollHeight + "px";
+                    subMenu.classList.toggle('active');
+
+                    if (subMenu.classList.contains('active')) {
+                        subMenu.style.maxHeight = subMenu.scrollHeight + "px";
+                    } else {
+                        subMenu.style.maxHeight = "0px";
+                    }
                 }
             })
 
