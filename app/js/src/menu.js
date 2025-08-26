@@ -18,15 +18,43 @@ document.addEventListener("DOMContentLoaded", () => {
     function handleChange(e) {
         if (e.matches) {
             // экран <= 1200
+            subMenus.forEach(subMenu => {
+                subMenu.style.maxHeight = "0px";
+            })
+
             burger.onclick = () => {
-                header.classList.toggle("active");
-                burger.classList.toggle("active");
-                headerBox.classList.toggle("active");
+                if (burger.classList.contains('active')) {
+                    // Закрыли меню
+                    header.classList.remove("active");
+                    burger.classList.remove("active");
+                    headerBox.classList.remove("active");
+
+                    subMenus.forEach(subMenu => {
+                        subMenu.style.maxHeight = "0px";
+                        subMenu.classList.remove('active');
+                    })
+                } else {
+                    // Активировали меню
+                    header.classList.add("active");
+                    burger.classList.add("active");
+                    headerBox.classList.add("active");
+                }
             };
 
             menuItems.forEach(menuItem => {
                 menuItem.onclick = () => {
                     const subMenu = menuItem.querySelector(".sub-menu");
+
+                    // Закрываем все подменю кроме текущего
+                    menuItems.forEach(otherItem => {
+                        if (otherItem !== menuItem) {
+                            const otherSubMenu = otherItem.querySelector(".sub-menu");
+                            otherSubMenu.classList.remove('active');
+                            otherSubMenu.style.maxHeight = "0px";
+                        }
+                    });
+
+                    // Переключаем текущее подменю
                     subMenu.classList.toggle('active');
 
                     if (subMenu.classList.contains('active')) {
@@ -35,10 +63,17 @@ document.addEventListener("DOMContentLoaded", () => {
                         subMenu.style.maxHeight = "0px";
                     }
                 }
-            })
+            });
 
         } else {
             // экран > 1200
+            header.classList.remove("active");
+            burger.classList.remove("active");
+            headerBox.classList.remove("active");
+
+            subMenus.forEach(subMenu => {
+                subMenu.style.maxHeight = "";
+            })
         }
     }
 
