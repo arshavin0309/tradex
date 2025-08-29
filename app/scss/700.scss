@@ -4,6 +4,33 @@
 
         .container {
             padding-top: 0;
+            padding-bottom: 320px;
+            background-size: auto 230px;
+
+            &::before {
+                background-size: 100% 280px;
+            }
+        }
+    }
+
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    section {
+        &:not(:last-child) {
+            margin-bottom: 80px;
+        }
+    }
+
+    .header {
+        &__content {
+            height: calc(100vh - 70px - 16px);
+
+            &.active {
+                right: 16px;
+            }
         }
     }
 
@@ -39,22 +66,38 @@
         line-height: 38px;
     }
 
+    h2, .h2 {
+        margin-bottom: 32px;
+    }
+
     .main-way {
         &__list {
             grid-template-columns: 1fr;
         }
 
         &__item {
+            min-height: 130px;
+            padding: 24px 16px;
+
             &:nth-child(1) {
-                padding: 24px 83px 292px 16px;
+                padding-bottom: 292px;
                 grid-row: initial;
                 grid-column: initial;
             }
 
             &:nth-child(4) {
+                padding-bottom: 312px;
                 grid-row: 2;
                 grid-column: initial;
             }
+        }
+    }
+
+    .main-start {
+        &__box {
+            padding: 0;
+            background: none;
+            border: none;
         }
     }
 }
