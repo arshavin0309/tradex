@@ -66,7 +66,8 @@
         line-height: 38px;
     }
 
-    h2, .h2 {
+    h2,
+    .h2 {
         margin-bottom: 32px;
     }
 
@@ -133,6 +134,54 @@
 
         .btn--white {
             margin-top: 32px;
+        }
+    }
+
+    .main-easy {
+        &__container {
+            padding: 0;
+            border: none;
+            background: none;
+        }
+
+        h2 {
+            margin-bottom: 32px;
+        }
+
+        &__item {
+            padding: 32px 24px;
+
+            &:nth-child(1) {
+                padding: 24px 16px 196px;
+                background-size: 220px;
+            }
+
+            &:nth-child(4) {
+                padding: 24px 16px 196px;
+                background-size: 224px;
+            }
+        }
+
+        &__step {
+            font-size: 18px;
+        }
+    }
+
+    .swiper-review {
+        margin-left: -16px;
+        margin-right: -16px;
+        padding-left: 16px;
+        padding-right: 16px;
+
+        .swiper-slide {
+            padding: 24px 16px;
+        }
+
+        &__box {
+            p {
+                width: 100%;
+                min-width: initial;
+            }
         }
     }
 }

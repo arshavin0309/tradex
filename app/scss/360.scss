@@ -1,8 +1,33 @@
+@media (max-width: 380px) {
+    .swiper-review {
+        .swiper-slide {
+            height: initial;
+            gap: 120px;
+        }
+
+        &__author {
+            max-width: 50%;
+        }
+    }
+}
+
 @media (max-width: 360px) {
     .main-way {
         &__item {
             &:nth-child(4) {
                 background-size: auto 60%;
+            }
+        }
+    }
+
+    .main-easy {
+        &__item {
+            &:nth-child(1) {
+                background-size: 180px;
+            }
+
+            &:nth-child(4) {
+                background-size: 180px;
             }
         }
     }

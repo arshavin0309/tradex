@@ -1,3 +1,33 @@
 @media (max-width: 1600px) {
+    .swiper-review {
+        margin-left: -30px;
+        margin-right: -30px;
+        padding-left: 30px;
+        padding-right: 30px;
 
+        .swiper-slide {
+
+            &--alina,
+            &--andrey,
+            &--mark,
+            &--svetlana,
+            &--alex {
+                &::after {
+                    height: 120px;
+                }
+            }
+
+            &-active {
+                &::after {
+                    height: 180px;
+                }
+            }
+
+            &::before {
+                width: 140px;
+                height: 140px;
+                filter: blur(30px);
+            }
+        }
+    }
 }

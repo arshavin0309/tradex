@@ -1,5 +1,4 @@
 let swiperReview = new Swiper(".swiper-review", {
-    slidesPerView: 3,
     centeredSlides: true,
     spaceBetween: 30,
     grabCursor: true,
@@ -8,6 +7,12 @@ let swiperReview = new Swiper(".swiper-review", {
     navigation: {
         nextEl: '.swiper-review-next',
         prevEl: '.swiper-review-prev',
+    },
+
+    breakpoints: {
+        1201: {
+            slidesPerView: 3,
+        }
     },
 });
 
