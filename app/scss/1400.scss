@@ -33,4 +33,13 @@
             }
         }
     }
+
+    .main-new {
+        &__container {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 48px;
+            background-image: none;
+        }
+    }
 }
