@@ -1,3 +1,22 @@
 @media (max-width: 600px) {
-    
+    .terms-types {
+        &__list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__item {
+            padding: 32px 24px;
+            gap: 32px;
+
+            &--premium {
+                animation: none;
+                background: linear-gradient(0.05deg, #EE4A14 0.04%, #151515 88.34%);
+            }
+
+            &::before {
+                height: 7px;
+            }
+        }
+    }
 }

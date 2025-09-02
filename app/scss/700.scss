@@ -226,4 +226,39 @@
             margin: 0 auto 24px;
         }
     }
+
+    .terms-advantages {
+        &__container {
+            padding: 0;
+            border: none;
+            background: none;
+        }
+
+        &__item {
+            padding: 24px 16px;
+
+            &:not(&--image) {
+                min-height: 222px;
+
+                &::before {
+                    top: 24px;
+                    left: 16px;
+                }
+            }
+
+            &--image {
+                min-height: 329px;
+
+                &::before {
+                    width: calc(100% - 160px - 27px);
+                    height: calc(100% - 58px - 24px);
+                }
+
+                &::after {
+                    top: 25px;
+                    height: calc(100% - 25px);
+                }
+            }
+        }
+    }
 }

@@ -239,4 +239,22 @@
             max-width: 100%;
         }
     }
+
+    .terms-advantages {
+        &__list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        &__item {
+            &--image {
+                grid-column: initial;
+                grid-row: initial;
+
+                &::before {
+                    width: auto;
+                    aspect-ratio: 1/1;
+                }
+            }
+        }
+    }
 }

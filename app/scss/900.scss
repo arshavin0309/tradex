@@ -1,3 +1,14 @@
 @media (max-width: 900px) {
-    
+    .terms-advantages {
+        &__list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__item {
+            &--image {
+                min-height: 385px;
+            }
+        }
+    }
 }

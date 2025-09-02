@@ -26,4 +26,23 @@
             padding: 48px 24px;
         }
     }
+
+    .terms-types {
+        &__list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        &__item {
+            padding: 32px 22px;
+            gap: 48px;
+        }
+
+        ul {
+            max-width: 300px;
+        }
+
+        .btn {
+            margin: 0;
+        }
+    }
 }
