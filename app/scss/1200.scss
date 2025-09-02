@@ -138,6 +138,8 @@
         }
 
         &__item {
+            padding: 32px 24px;
+
             &:nth-child(1) {
                 grid-row: 1;
                 grid-column: 1;
@@ -209,6 +211,32 @@
 
         &-buttons {
             gap: 20px;
+        }
+    }
+
+    .main-horizon {
+        &__container {
+            padding: 32px 26px 119px;
+            animation: none;
+            background:
+                url(../images/main-horizon-decor-mobile-2.avif) right bottom / 656px 50% no-repeat,
+                url(../images/main-horizon-decor-mobile-1.avif) left 15px bottom / 656px 50% no-repeat,
+                linear-gradient(180deg, #0B0B0B 0%, #391C11 34.36%, #FB622A 100%);
+
+            &::before,
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    .main-banner {
+        &__content {
+            max-width: 100%;
+        }
+
+        p {
+            max-width: 100%;
         }
     }
 }
