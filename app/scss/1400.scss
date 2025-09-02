@@ -42,4 +42,18 @@
             background-image: none;
         }
     }
+
+    .swiper-page {
+        &__content {
+            min-height: initial;
+
+            &.forex,
+            &.stocks,
+            &.indices,
+            &.products,
+            &.cryptocurrencies {
+                background: none;
+            }
+        }
+    }
 }

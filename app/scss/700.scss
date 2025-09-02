@@ -250,7 +250,7 @@
                 min-height: 329px;
 
                 &::before {
-                    width: calc(100% - 160px - 27px);
+                    width: 173px;
                     height: calc(100% - 58px - 24px);
                 }
 
@@ -259,6 +259,43 @@
                     height: calc(100% - 25px);
                 }
             }
+        }
+    }
+
+    .terms-hero {
+        .container {
+            padding-top: 120px;
+            padding-bottom: 130px;
+        }
+    }
+
+    .instruments-hero {
+        .container {
+            padding-top: 120px;
+            padding-bottom: 115px;
+        }
+    }
+
+    .swiper-btns {
+        margin-bottom: 32px;
+        margin-left: -16px;
+        margin-right: -16px;
+        padding-left: 16px;
+        padding-right: 16px;
+
+        .swiper-slide {
+            width: 206px;
+        }
+    }
+
+    .swiper-page {
+        .swiper-slide {
+            padding: 24px 16px;
+        }
+
+        &__content {
+            margin-bottom: 40px;
+            gap: 40px;
         }
     }
 }

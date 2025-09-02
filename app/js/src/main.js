@@ -19,12 +19,18 @@ let swiperReview = new Swiper(".swiper-review", {
 let swiperBtns = new Swiper(".swiper-btns", {
     freeMode: true,
     watchSlidesProgress: true,
-    slidesPerView: 5,
+    slidesPerView: 'auto',
     spaceBetween: 10,
+
+    breakpoints: {
+        1201: {
+            slidesPerView: 5,
+        },
+    },
 });
 
 let swiperPage = new Swiper(".swiper-page", {
-    spaceBetween: 100,
+    spaceBetween: 30,
     thumbs: {
         swiper: swiperBtns,
     },

@@ -257,4 +257,21 @@
             }
         }
     }
+
+    .instruments-hero {
+        .container {
+            padding-bottom: 138px;
+        }
+    }
+
+    .swiper-btns {
+        margin-left: -30px;
+        margin-right: -30px;
+        padding-left: 30px;
+        padding-right: 30px;
+
+        .swiper-slide {
+            width: 295px;
+        }
+    }
 }
