@@ -97,7 +97,10 @@ function styles() {
 
     return src('app/scss/style.scss')
         .pipe(sourcemaps.init())
-        .pipe(scss({ outputStyle: 'compressed' }).on('error', scss.logError))
+        .pipe(scss({
+            silenceDeprecations: ['legacy-js-api', 'import'], // временное решение, нужен переезд на USE
+            outputStyle: 'compressed'
+        }).on('error', scss.logError))
         .pipe(autoprefixer({ cascade: false }))
         .pipe(concat('style.min.css'))
         .pipe(replace(/(\.png|\.jpg|\.jpeg|\.webp|\.avif|\.svg)(\?v=\d+)?/g, `$1?v=${timestamp}`))
