@@ -11,4 +11,27 @@
             }
         }
     }
+
+    .platform-advantages {
+        &__image {
+            min-height: 684px;
+            grid-row: initial;
+            grid-column: initial;
+
+            &::after {
+                width: 100%;
+                background-position: center bottom;
+            }
+        }
+
+        &__list {
+            grid-template-columns: 1fr;
+        }
+
+        &__item {
+            h3, p {
+                max-width: 424px;
+            }
+        }
+    }
 }

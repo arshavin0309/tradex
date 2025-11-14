@@ -56,4 +56,15 @@
             }
         }
     }
+
+    .platform-advantages {
+        &__list {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        &__image {
+            grid-column: 2;
+            grid-row: 1/3;
+        }
+    }
 }

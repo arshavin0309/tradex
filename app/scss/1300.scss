@@ -45,4 +45,46 @@
             margin: 0;
         }
     }
+
+    .platform-platform {
+
+        h2,
+        .h2 {
+            margin-bottom: 32px;
+        }
+
+        &__list {
+            grid-template-columns: 1fr;
+        }
+
+        &__item {
+            p {
+                max-width: 100%;
+            }
+
+            &.mt {
+                grid-column: initial;
+                grid-row: initial;
+
+                p {
+                    max-width: 642px;
+                }
+            }
+        }
+
+        &__btns {
+            max-width: 396px;
+            margin-top: 24px;
+        }
+
+        &__qr {
+            grid-template-columns: repeat(2, 204px);
+
+            figure {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+    }
 }

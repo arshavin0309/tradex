@@ -1420,6 +1420,7 @@ section {
     &__image {
         grid-column: 3;
         grid-row: 1/3;
+        overflow: hidden;
 
         &::before {
             inset: auto 64px 145px auto;

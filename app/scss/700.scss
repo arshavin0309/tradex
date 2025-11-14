@@ -298,4 +298,55 @@
             gap: 40px;
         }
     }
+
+    h2,
+    .h2 {
+        margin-bottom: 32px;
+    }
+
+    .platform-advantages {
+        &__container {
+            padding: 0;
+            border-radius: initial;
+            background: initial;
+            border: initial;
+        }
+
+        &__item {
+            min-height: 296px;
+            padding: 68px 16px 24px;
+
+            &::before {
+                top: 24px;
+                left: 16px;
+            }
+        }
+
+        &__image {
+            &::before {
+                width: 151px;
+                height: 215px;
+                inset: 17px 27px auto auto;
+            }
+
+            &::after {
+                height: 100%;
+                background-position: right bottom;
+                background-size: auto calc(100% - 45px);
+            }
+        }
+    }
+
+    .platform-platform {
+        &__item {
+            padding: 24px 16px;
+
+            &.wt,
+            &.dt,
+            &.mt {
+                padding-right: 16px;
+                background: var(--black-card);
+            }
+        }
+    }
 }
