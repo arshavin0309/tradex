@@ -884,8 +884,8 @@ section {
     }
 
     h1 {
-        font-size: 160px;
-        line-height: 160px;
+        font-size: clamp(32px, 8vw, 160px);
+        line-height: 100%;
     }
 
     .btn--white {
@@ -1697,7 +1697,7 @@ section {
     &__list {
         display: grid;
         gap: 20px;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
     }
 
     &__item {
@@ -1781,11 +1781,12 @@ section {
     &__list {
         display: grid;
         gap: 20px;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
     }
 
     &__item {
         position: relative;
+        min-height: 204px;
         padding: 76px 24px 32px;
         background: var(--grey-card);
         border-radius: 10px;
@@ -1808,6 +1809,7 @@ section {
     }
 
     &__image {
+        min-height: 204px;
         background: url(../images/about-why-image.avif) center / cover no-repeat;
         border-radius: 10px;
         border: 1px solid var(--grey-line);
@@ -1879,15 +1881,16 @@ section {
     &__list {
         display: grid;
         gap: 20px;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
     }
 
     &__item {
+        min-height: 208px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: start;
-        gap: 80px;
+        gap: 20px;
         padding: 32px 24px;
         background: var(--black-card);
         border-radius: 10px;

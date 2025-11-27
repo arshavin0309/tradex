@@ -349,4 +349,125 @@
             }
         }
     }
+
+    .review-online {
+        h2 {
+            &+p {
+                margin-bottom: 32px;
+            }
+        }
+    }
+
+    .review-conditions {
+        h2 {
+            &+p {
+                margin-bottom: 32px;
+            }
+        }
+    }
+
+    .review-events {
+        h2 {
+            &+p {
+                margin-bottom: 32px;
+            }
+        }
+    }
+
+    .calendar-content {
+        &__container {
+            gap: 32px;
+            padding: 0;
+            background: initial;
+            border-radius: initial;
+            border: initial;
+        }
+
+        &__box {
+            &::before {
+                display: none;
+            }
+
+            &::after {
+                display: none;
+            }
+        }
+
+        &__item {
+            padding: 24px 16px;
+        }
+    }
+
+    .calendar-use {
+        &__container {
+            padding: 0;
+            background: initial;
+            border: initial;
+            border-radius: initial;
+        }
+
+        &__list {
+            grid-template-columns: 1fr;
+        }
+
+        &__item {
+            padding: 24px 16px 80px;
+        }
+
+        &__step {
+            bottom: 24px;
+            right: 16px;
+        }
+    }
+
+    .about-mission {
+        &__container {
+            padding: 0;
+            background: initial;
+            border: initial;
+            border-radius: initial;
+        }
+
+        &__list {
+            margin-top: 32px;
+        }
+    }
+
+    .about-why {
+        &__container {
+            padding: 0;
+            background: initial;
+            border: initial;
+            border-radius: initial;
+        }
+
+        &__list {
+            grid-template-columns: 1fr;
+        }
+
+        &__item {
+            min-height: 172px;
+            padding: 68px 16px 24px;
+
+            &::before {
+                top: 24px;
+                left: 16px;
+            }
+        }
+
+        &__image {
+            min-height: 172px;
+        }
+    }
+
+    .documents-docs {
+        &__list {
+            grid-template-columns: 1fr;
+        }
+
+        &__item {
+            min-height: 164px;
+            padding: 24px 16px;
+        }
+    }
 }

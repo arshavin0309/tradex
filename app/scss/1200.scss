@@ -274,4 +274,89 @@
             width: 295px;
         }
     }
+
+    .review-events {
+        &__container {
+            grid-template-columns: 1fr;
+            gap: 100px;
+        }
+
+        &__box {
+            padding: 0;
+            background: initial;
+            border-radius: initial;
+            border: initial;
+            text-align: initial;
+        }
+    }
+
+    .calendar-content {
+        &__container {
+            grid-template-columns: 1fr;
+            gap: 0;
+            padding: 48px 32px;
+
+            &::before {
+                display: none;
+            }
+
+            &::after {
+                display: none;
+            }
+        }
+
+        &__box {
+            position: relative;
+            padding-bottom: 0;
+
+            &::before {
+                position: absolute;
+                content: "";
+                bottom: 80px;
+                left: 194px;
+                width: 235px;
+                height: 239px;
+                border-radius: 50%;
+                background: var(--orange);
+                filter: blur(80px);
+            }
+
+            &::after {
+                z-index: 1;
+                position: relative;
+                content: '';
+                display: block;
+                margin: 80px auto -26px 30px;
+                width: 423px;
+                height: 360px;
+                background: url(../images/calendar-content-image.avif) left bottom / contain no-repeat;
+            }
+        }
+
+        &__item {
+            z-index: 2;
+            position: relative;
+        }
+    }
+
+    .about-mission {
+        &__container {
+            background:
+                linear-gradient(180deg,rgba(21, 21, 21, 1) 50%, rgba(21, 21, 21, 0) 100%) left top 159px / 100% 40px no-repeat,
+                linear-gradient(270deg,rgba(21, 21, 21, 1) 50%, rgba(21, 21, 21, 0) 100%) left calc(703px - 40px) top/ 40px 100% no-repeat,
+                url(../images/about-mission-image.avif?v=1764243908469) left top 159px / 703px no-repeat,
+                var(--black-card);
+        }
+
+        h2 {
+            &+p {
+                max-width: 542px;
+            }
+        }
+
+        &__list {
+            margin-top: 272px;
+            grid-template-columns: 1fr;
+        }
+    }
 }

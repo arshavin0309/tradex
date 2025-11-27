@@ -34,4 +34,15 @@
             }
         }
     }
+
+    .about-advantages {
+        &__list {
+            grid-template-columns: 1fr;
+        }
+
+        &__item {
+            min-height: 212px;
+            padding: 24px 16px;
+        }
+    }
 }
