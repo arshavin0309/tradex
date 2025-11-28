@@ -113,10 +113,17 @@
         }
     }
 
+    section {
+        &:not(:last-child) {
+            margin-bottom: 100px;
+        }
+    }
+
     .footer {
         .container {
             display: flex;
             flex-direction: column;
+            margin-top: 100px;
         }
 
         .menu {
@@ -342,8 +349,8 @@
     .about-mission {
         &__container {
             background:
-                linear-gradient(180deg,rgba(21, 21, 21, 1) 50%, rgba(21, 21, 21, 0) 100%) left top 159px / 100% 40px no-repeat,
-                linear-gradient(270deg,rgba(21, 21, 21, 1) 50%, rgba(21, 21, 21, 0) 100%) left calc(703px - 40px) top/ 40px 100% no-repeat,
+                linear-gradient(180deg, rgba(21, 21, 21, 1) 50%, rgba(21, 21, 21, 0) 100%) left top 159px / 100% 40px no-repeat,
+                linear-gradient(270deg, rgba(21, 21, 21, 1) 50%, rgba(21, 21, 21, 0) 100%) left calc(703px - 40px) top/ 40px 100% no-repeat,
                 url(../images/about-mission-image.avif?v=1764243908469) left top 159px / 703px no-repeat,
                 var(--black-card);
         }
@@ -357,6 +364,12 @@
         &__list {
             margin-top: 272px;
             grid-template-columns: 1fr;
+        }
+    }
+
+    .terms-hero {
+        .container {
+            padding-bottom: 162px;
         }
     }
 }

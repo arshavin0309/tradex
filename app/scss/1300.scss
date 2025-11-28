@@ -87,4 +87,21 @@
             }
         }
     }
+
+    .contacts-content {
+        &__container {
+            grid-template-columns: 1fr;
+            grid-template-rows: initial;
+            gap: 32px;
+        }
+
+        form {
+            grid-column: initial;
+            grid-row: initial;
+        }
+
+        &__map {
+            height: 316px;
+        }
+    }
 }

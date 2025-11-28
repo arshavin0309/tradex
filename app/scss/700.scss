@@ -35,6 +35,10 @@
     }
 
     .footer {
+        .container {
+            margin-top: 80px;
+        }
+
         &__info {
             padding: 24px 10px;
         }
@@ -468,6 +472,27 @@
         &__item {
             min-height: 164px;
             padding: 24px 16px;
+        }
+    }
+
+    .contacts-content {
+        &__list {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        &__item {
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+        }
+
+        form {
+            padding: 24px 16px;
+        }
+
+        &__map {
+            height: 382px;
         }
     }
 }
