@@ -372,4 +372,10 @@
             padding-bottom: 162px;
         }
     }
+
+    main {
+        &.active {
+            opacity: 0.3;
+        }
+    }
 }

@@ -1,6 +1,7 @@
 // мобильное меню
 document.addEventListener("DOMContentLoaded", () => {
     const header = document.querySelector(".header");
+    const main = document.querySelector("main");
     const burger = document.querySelector(".header__burger");
     const menuItems = document.querySelectorAll(".header .menu > .menu-item");
     const subMenus = document.querySelectorAll(".header .menu > .menu-item > .sub-menu");
@@ -19,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (event.key === 'Escape') {
                 // Закрываем меню
                 if (header) header.classList.remove("active");
+                if (main) main.classList.remove("active");
                 if (burger) burger.classList.remove("active");
                 if (headerBox) headerBox.classList.remove("active");
 
@@ -49,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (burger.classList.contains('active')) {
                     // Закрыли меню
                     if (header) header.classList.remove("active");
+                    if (main) main.classList.remove("active");
                     if (burger) burger.classList.remove("active");
                     if (headerBox) headerBox.classList.remove("active");
 
@@ -61,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 } else {
                     // Активировали меню
                     if (header) header.classList.add("active");
+                    if (main) main.classList.add("active");
                     if (burger) burger.classList.add("active");
                     if (headerBox) headerBox.classList.add("active");
                 }
@@ -77,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         // Если решетка одна, то это точно якорь
                         if (hashCount === 1) {
                             if (header) header.classList.remove("active");
+                            if (main) main.classList.remove("active");
                             if (burger) burger.classList.remove("active");
                             if (headerBox) headerBox.classList.remove("active");
                         }
@@ -111,6 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             // экран > 1200
             if (header) header.classList.remove("active");
+            if (main) main.classList.remove("active");
             if (burger) burger.classList.remove("active");
             if (headerBox) headerBox.classList.remove("active");
 
