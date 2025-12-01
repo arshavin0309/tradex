@@ -141,7 +141,6 @@ a {
         height: calc(100% + 40px);
         top: -10px;
         left: 0;
-        background: red;
         background: linear-gradient(180deg, rgba(11, 11, 11, 1) 70%, rgba(11, 11, 11, 0) 100%);
     }
 
@@ -159,11 +158,6 @@ a {
 
     &__burger {
         display: none;
-        width: 27px;
-        height: 20px;
-        background: url(../images/burger.svg) center / contain no-repeat;
-        border: none;
-        cursor: pointer;
     }
 
     &__logo {
@@ -798,7 +792,7 @@ section {
             }
 
             &::after {
-                height: 261px;
+                height: 230px;
             }
         }
     }
@@ -1000,21 +994,6 @@ section {
     }
 }
 
-.forecasts-hero {
-    .container {
-        padding-top: 190px;
-        padding-bottom: 128px;
-    }
-
-    p {
-        max-width: 747px;
-    }
-
-    .btn--white {
-        margin-top: 48px;
-    }
-}
-
 .calendar-hero {
     .container {
         padding-top: 190px;
@@ -1100,7 +1079,7 @@ section {
     }
 
     ul {
-        max-width: 270px;
+        max-width: 265px;
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -1349,38 +1328,6 @@ section {
             justify-content: center;
             align-items: center;
             gap: 10px;
-
-            &::before {
-                content: '';
-                display: block;
-                width: 24px;
-                height: 24px;
-                transition: var(--transition);
-            }
-        }
-
-        .wt {
-            &::before {
-                background: url(../images/wt-icon.svg) center / contain no-repeat;
-            }
-        }
-
-        .win {
-            &::before {
-                background: url(../images/win-icon.svg) center / contain no-repeat;
-            }
-        }
-
-        .android {
-            &::before {
-                background: url(../images/android-icon.svg) center / contain no-repeat;
-            }
-        }
-
-        .ios {
-            &::before {
-                background: url(../images/ios-icon.svg) center / contain no-repeat;
-            }
         }
     }
 
@@ -1663,8 +1610,8 @@ section {
             position: absolute;
             left: 43px;
             bottom: 0;
-            width: 548px;
-            height: 467px;
+            width: 603px;
+            height: 501px;
             background: url(../images/calendar-content-image.avif) left bottom / contain no-repeat;
         }
     }

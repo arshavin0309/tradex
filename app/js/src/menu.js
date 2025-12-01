@@ -26,6 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Закрываем все подменю
                 if (subMenus.length > 0) {
+                    menuItems.forEach(menuItem => {
+                        menuItem.classList.remove('active');
+                    });
+
                     subMenus.forEach(subMenu => {
                         subMenu.classList.remove('active');
 
@@ -56,6 +60,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (headerBox) headerBox.classList.remove("active");
 
                     if (subMenus.length > 0) {
+                        menuItems.forEach(menuItem => {
+                            menuItem.classList.remove('active');
+                        })
+
                         subMenus.forEach(subMenu => {
                             subMenu.style.maxHeight = "0px";
                             subMenu.classList.remove('active');
@@ -96,12 +104,14 @@ document.addEventListener("DOMContentLoaded", () => {
                             const otherSubMenu = otherItem.querySelector(".sub-menu");
 
                             if (otherSubMenu && otherItem !== menuItem) {
+                                otherItem.classList.remove('active');
                                 otherSubMenu.classList.remove('active');
                                 otherSubMenu.style.maxHeight = "0px";
                             }
                         });
 
                         // Переключаем текущее подменю
+                        menuItem.classList.toggle('active');
                         subMenu.classList.toggle('active');
 
                         if (subMenu.classList.contains('active')) {
