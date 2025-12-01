@@ -11,6 +11,10 @@
                 background-size: 100% 280px;
             }
         }
+
+        .btn {
+            margin-top: 24px;
+        }
     }
 
     .container {
@@ -271,12 +275,123 @@
             padding-top: 120px;
             padding-bottom: 130px;
         }
+
+        .btn--white {
+            margin-top: 32px;
+        }
+    }
+
+    .platform-hero {
+        .container {
+            padding-top: 120px;
+            padding-bottom: 115px;
+        }
+
+        h1 {
+            max-width: 350px;
+        }
+
+        .btn--white {
+            margin-top: 32px;
+        }
+    }
+
+    .news-hero {
+        .container {
+            padding-top: 120px;
+            padding-bottom: 110px;
+        }
+
+        .btn--white {
+            margin-top: 32px;
+        }
+    }
+
+    .forecasts-hero {
+        .container {
+            padding-top: 120px;
+            padding-bottom: 110px;
+        }
+
+        .btn--white {
+            margin-top: 32px;
+        }
+    }
+
+    .error-hero {
+        .container {
+            padding-top: 120px;
+            padding-bottom: 195px;
+        }
+
+        .btn--white {
+            margin-top: 32px;
+        }
+    }
+
+    .documents-hero {
+        .container {
+            padding-top: 120px;
+            padding-bottom: 210px;
+        }
+
+        .btn--white {
+            margin-top: 32px;
+        }
+    }
+
+    .contacts-hero {
+        .container {
+            padding-top: 120px;
+            padding-bottom: 136px;
+        }
+    }
+
+    .about-hero {
+        .container {
+            padding-top: 120px;
+            padding-bottom: 190px;
+        }
+
+        .btn--white {
+            margin-top: 32px;
+        }
+    }
+
+    .calendar-hero {
+        .container {
+            padding-top: 120px;
+            padding-bottom: 52px;
+        }
+
+        .btn--white {
+            margin-top: 32px;
+        }
+    }
+
+    .review-hero {
+        .container {
+            padding-top: 120px;
+            padding-bottom: 150px;
+        }
+
+        .btn--white {
+            margin-top: 32px;
+        }
     }
 
     .instruments-hero {
         .container {
             padding-top: 120px;
-            padding-bottom: 115px;
+            padding-bottom: 75px;
+        }
+
+        h1 {
+            max-width: 350px;
+        }
+
+        .btn--white {
+            margin-top: 32px;
         }
     }
 

@@ -267,6 +267,8 @@ a {
     cursor: pointer;
     overflow: clip;
     text-align: center;
+    font-size: 18px;
+    line-height: 24px;
 
     &--white {
         display: inline-block;
@@ -461,7 +463,7 @@ h3,
     }
 
     .title {
-        margin-bottom: 25px;
+        margin-bottom: 24px;
     }
 }
 
@@ -1957,6 +1959,7 @@ section {
             border: 1px solid var(--orange);
             background: var(--gradient-orange);
             object-fit: none;
+            flex: 0 0 auto;
         }
 
         a {
