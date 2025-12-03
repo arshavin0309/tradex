@@ -16,6 +16,7 @@
             border: 1px solid var(--grey-line);
             box-shadow: 0px 0px 12px 14px rgba(0, 0, 0, .2);
             overflow: clip;
+            transition: var(--transition);
 
             &.active {
                 right: 30px;
@@ -32,6 +33,13 @@
 
             .burger-line {
                 transform-origin: center;
+            }
+
+            .top,
+            .middle,
+            .bottom,
+            path {
+                transition: var(--transition);
             }
 
             &.active {
@@ -420,6 +428,8 @@
     }
 
     main {
+        transition: .3s ease-in-out opacity;
+
         &.active {
             opacity: 0.3;
         }
