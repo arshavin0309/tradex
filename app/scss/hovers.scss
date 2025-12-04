@@ -39,7 +39,7 @@
 
         &__option {
             &:hover {
-                    color: var(--orange);
+                color: var(--orange);
             }
         }
     }
@@ -96,15 +96,15 @@
     }
 
     .swiper-review {
-        &-prev {
-            &:hover {
-                background-image: url(../images/arrow-right-orange.svg);
-            }
-        }
 
+        &-prev,
         &-next {
             &:hover {
-                background-image: url(../images/arrow-right-orange.svg);
+                path {
+                    fill: var(--hover);
+                }
+
+                border-color: var(--hover);
             }
         }
     }

@@ -602,6 +602,7 @@ section {
             border: 1px solid var(--orange);
             background: var(--gradient-orange);
             object-fit: none;
+            transition: var(--transition);
         }
     }
 
@@ -830,23 +831,20 @@ section {
         margin-top: 48px;
     }
 
-    &-prev {
-        width: 60px;
-        height: 60px;
-        background: var(--black-card) url(../images/arrow-right.svg) center / 16px 14px no-repeat;
-        border: 1px solid var(--grey-line);
-        border-radius: 50px;
-        transform: rotate(-180deg);
-        cursor: pointer;
-    }
-
+    &-prev,
     &-next {
         width: 60px;
         height: 60px;
-        background: var(--black-card) url(../images/arrow-right.svg) center / 16px 14px no-repeat;
+        padding: 18px;
+        background: var(--black-card);
         border: 1px solid var(--grey-line);
         border-radius: 50px;
+        transition: var(--transition);
         cursor: pointer;
+
+        path {
+            transition: var(--transition);
+        }
     }
 }
 
