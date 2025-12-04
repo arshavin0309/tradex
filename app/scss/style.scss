@@ -120,6 +120,12 @@ body {
 body {
     background: var(--bg);
     color: var(--white);
+
+    &.preload {
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+    }
 }
 
 a {
@@ -1952,7 +1958,7 @@ section {
         overflow: clip;
     }
 
-    form {
+    &__form {
         grid-column: 2;
         grid-row: 1/3;
         padding: 48px 32px;
@@ -2016,6 +2022,24 @@ section {
 .widget-box {
     width: 100%;
     height: 500px;
+}
+
+.wpcf7-list-item {
+    margin: 0;
+}
+
+.wpcf7-not-valid-tip {
+    margin: -15px 0 20px !important;
+}
+
+.wpcf7-spinner {
+    display: none;
+}
+
+.wpcf7-response-output {
+    margin: 20px 0 0 !important;
+    border-radius: 10px !important;
+    padding: 10px 20px !important;
 }
 
 @import '../scss/hovers';
